@@ -116,9 +116,9 @@ void CreateObjects()
     // nx ny nz normal vector
     // x     y     z        u    v       nx    ny    nz
     -1.0f, -1.0f, -0.6f,   0.0f, 0.0f,   0.0f, 0.0f, 0.0f,
-     0.0f, -1.0f,  1.0f,   0.5f, 0.0f,   0.0f, 0.0f, 0.0f,
-     1.0f, -1.0f, -0.6f,   1.0f, 0.0f,   0.0f, 0.0f, 0.0f,
-     0.0f , 1.0f,  0.0f,   0.5f, 1.0f,   0.0f, 0.0f, 0.0f,
+    0.0f, -1.0f,  1.0f,   0.5f, 0.0f,   0.0f, 0.0f, 0.0f,
+    1.0f, -1.0f, -0.6f,   1.0f, 0.0f,   0.0f, 0.0f, 0.0f,
+    0.0f , 1.0f,  0.0f,   0.5f, 1.0f,   0.0f, 0.0f, 0.0f,
   };
 
   unsigned int floorIndices[] = {
@@ -128,9 +128,9 @@ void CreateObjects()
 
   GLfloat floorVertices[] = {
     -10.0f, 0.0f, -10.0f,   0.0f,  0.0f, 0.0f, -1.0f, 0.0f,
-     10.0f, 0.0f, -10.0f,  10.0f,  0.0f, 0.0f, -1.0f, 0.0f,
+    10.0f, 0.0f, -10.0f,  10.0f,  0.0f, 0.0f, -1.0f, 0.0f,
     -10.0f, 0.0f,  10.0f,   0.0f, 10.0f, 0.0f, -1.0f, 0.0f,
-     10.0f, 0.0f,  10.0f,  10.0f, 10.0f, 0.0f, -1.0f, 0.0f,
+    10.0f, 0.0f,  10.0f,  10.0f, 10.0f, 0.0f, -1.0f, 0.0f,
   };
 
   calcAverageNormals(indices, 12, vertices, 32, 8, 5);
@@ -181,7 +181,7 @@ int main()
   dullMaterial	= Material(0.3f, 4);
   
   mainLight = DirectionalLight(1.0f,  1.0f,  1.0f,
-			       0.1f,  0.1f,
+			       0.0f,  0.0f,
 			       0.0f,  0.0f,  -1.0f);
 
   unsigned int pointLightCount = 0;
@@ -192,18 +192,18 @@ int main()
   pointLightCount++;
 
   pointLights[1] = PointLight(0.0f, 1.0f, 0.0f,
-			      0.1f, 0.1f,
+			      0.0f, 0.1f,
 			      -4.0f, 2.0f, 0.0f,
 			      0.3f, 0.1f, 0.1f);
   pointLightCount++;
 
   unsigned int spotLightCount = 0;
-  spotLights[0] = SpotLight(1.0f, 1.0f, 1.0f,
-			   0.0f, 2.0f,
-			   0.0f, 0.0f, 0.0f,
-			   0.0f, -1.0f, 0.0f,
-			   1.0f, 0.0f, 0.0f,
-			   20.0f);
+  spotLights[0] = SpotLight(0.0f, 0.0f, 1.0f,
+			    0.0f, 1.0f,
+			    0.0f, 0.0f, 0.0f,
+			    0.0f, -1.0f, 0.0f,
+			    0.3f, 0.2f, 0.1f,
+			    20.0f);
   spotLightCount++;
 
   GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
