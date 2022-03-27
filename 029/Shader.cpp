@@ -212,7 +212,7 @@ void Shader::CompileShader(const char* vertexCode,
     snprintf(locBuff, sizeof(locBuff), "pointLights[%d].base.ambientIntensity", i);
     uniformPointLight[i].uniformAmbientIntensity = glGetUniformLocation(shaderID, locBuff);
 
-    snprintf(locBuff, sizeof(locBuff), "pointLights[%d].base.DiffuseIntensity", i);
+    snprintf(locBuff, sizeof(locBuff), "pointLights[%d].base.diffuseIntensity", i);
     uniformPointLight[i].uniformDiffuseIntensity = glGetUniformLocation(shaderID, locBuff);
 
     snprintf(locBuff, sizeof(locBuff), "pointLights[%d].position", i);
