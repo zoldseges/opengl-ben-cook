@@ -17,7 +17,7 @@
 #include "Window.h"
 #include "Camera.h"
 #include "Texture.h"
-#include "Light.h"
+#include "DirectionalLight.h"
 #include "Material.h"
 
 const float toRadians = 3.14159265f / 180.0f;
@@ -33,7 +33,7 @@ Texture dirtTexture;
 Material shinyMaterial;
 Material dullMaterial;
 
-Light mainLight;
+DirectionalLight mainLight;
 
 GLfloat deltaTime = 0.0f;
 GLfloat lastTime = 0.0f;
@@ -140,7 +140,7 @@ int main()
   CreateObjects();
   CreateShaders();
 
-  camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f),
+  camera = Camera(glm::vec3(0.0f, 3.5f, 8.5f),
 		  glm::vec3(0.0f, 1.0f, 0.0f),
 		  -90.0f,
 		  0.0f,
@@ -155,8 +155,9 @@ int main()
   shinyMaterial = Material(1.0f, 32);
   dullMaterial	= Material(0.3f, 4);
   
-  mainLight = Light(1.0f,  1.0f,  1.0f, 0.2f,
-		    2.0f, -1.0f,  -2.0f, 0.3f);
+  mainLight = DirectionalLight(1.0f,  1.0f,  1.0f,
+			       0.1f,  0.3f,
+			       0.0f,  0.0f,  -1.0f);
 
   GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
     uniformAmbientIntensity = 0, uniformAmbientColour = 0,

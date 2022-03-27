@@ -9,6 +9,7 @@ Window::Window()
     keys[i] = 0;
   }
 
+  mouseFirstMoved = true;
   xChange = 0.0f;
   yChange = 0.0f;
 }
@@ -41,6 +42,10 @@ Window::Window(GLint windowWidth, GLint windowHeight)
   for(size_t i = 0; i < 1024; i++){
     keys[i] = 0;
   }
+
+  mouseFirstMoved = true;
+  xChange = 0.0f;
+  yChange = 0.0f;
 }
 
 int  Window::Initialise()
