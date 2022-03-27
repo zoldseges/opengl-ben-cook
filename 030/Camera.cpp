@@ -1,5 +1,7 @@
 #include "Camera.h"
 
+Camera::Camera() {}
+
 Camera::Camera(glm::vec3 startPosition,
 	       glm::vec3 startUp,
 	       GLfloat startYaw,
@@ -82,5 +84,9 @@ void Camera::update()
   up = glm::normalize(glm::cross(right, front));
 }
 
-Camera::Camera() {}
+glm::vec3 Camera::getCameraDirection()
+{
+  return glm::normalize(front);
+}
+
 Camera::~Camera() {}

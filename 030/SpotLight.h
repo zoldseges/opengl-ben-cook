@@ -24,6 +24,8 @@ public:
 		GLuint exponentLocation,
 		GLuint edgeLocation);
 
+  void SetFlash(glm::vec3 pos, glm::vec3 dir);
+
   ~SpotLight();
 
 private:

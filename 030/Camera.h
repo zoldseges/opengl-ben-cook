@@ -18,6 +18,7 @@ public:
 	 GLfloat startTurnSpeed);
 
   glm::vec3 getCameraPosition();
+  glm::vec3 getCameraDirection();
 
   void keyControl(bool *keys, GLfloat delataTime);
   void mouseControl(GLfloat xChange, GLfloat yChange);
