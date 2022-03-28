@@ -6,12 +6,16 @@ Window::Window()
   height = 600;
 
   for(size_t i = 0; i < 1024; i++){
-    keys[i] = 0;
+    keys[i] = false;
+    switches[i] = false;
   }
 
   mouseFirstMoved = true;
   xChange = 0.0f;
   yChange = 0.0f;
+
+  //start with spotlight on
+  switches[GLFW_KEY_F] = true;
 }
 
 void Window::createCallbacks()
@@ -40,12 +44,16 @@ Window::Window(GLint windowWidth, GLint windowHeight)
   height = windowHeight;
 
   for(size_t i = 0; i < 1024; i++){
-    keys[i] = 0;
+    keys[i] = false;
+    switches[i] = false;
   }
 
   mouseFirstMoved = true;
   xChange = 0.0f;
   yChange = 0.0f;
+
+  //start with spotlight on
+  switches[GLFW_KEY_F] = true;
 }
 
 int  Window::Initialise()
@@ -125,6 +133,8 @@ void Window::handleKeys(GLFWwindow* window,
       theWindow->keys[key] = true;
     } else if (action == GLFW_RELEASE) {
       theWindow->keys[key] = false;
+      theWindow->switches[key] =
+	!theWindow->switches[key];
     }
   }
 }

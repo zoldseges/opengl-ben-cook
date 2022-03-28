@@ -8,9 +8,12 @@ class Texture
 {
  public:
   Texture();
-  Texture(char *fileLoc);
+  Texture(const char *fileLoc);
 
-  void LoadTexture();
+  bool LoadTexture();
+  // texture with alpha
+  bool LoadTextureA();
+  
   void UseTexture();
   void ClearTexture();
     
@@ -20,7 +23,7 @@ class Texture
   GLuint textureID;
   int width, height, bitDepth;
 
-  char *fileLocation;
+  const char *fileLocation;
 };
 
 #endif // TEXTURE_H_

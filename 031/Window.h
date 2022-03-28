@@ -20,18 +20,22 @@ public:
   bool getShouldClose() { return glfwWindowShouldClose(mainWindow); }
 
   bool* getKeys() { return keys; }
+  bool* getSwitches() { return switches; }
+
   GLfloat getXChange();
   GLfloat getYChange();
 
   void swapBuffers() { glfwSwapBuffers(mainWindow); }
 
   ~Window();
+
 private:
   GLFWwindow *mainWindow;
   GLint width, height;
   GLint bufferWidth, bufferHeight;
 
   bool keys[1024];
+  bool switches[1024];
 
   // mouse
   GLfloat lastX, lastY, xChange, yChange;

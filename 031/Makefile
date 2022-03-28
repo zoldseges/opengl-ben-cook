@@ -1,6 +1,6 @@
 CC := g++
 
-PKGS := glfw3 glew opengl
+PKGS := glfw3 glew assimp
 
 FLAGS := -Wall -pedantic
 
